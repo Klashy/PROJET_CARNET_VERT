@@ -17,11 +17,18 @@ app.controller('View1Ctrl', ['all', function (all) {
     self.parents;
 
     GetUsersAll().then(function (response) {
-      //  self.tab = [];
 
         self.tab = response.data;
 
-        console.log('tab: ' + self.tab);
+        console.log('parents: ' + self.tab);
+
+    });
+
+    GetClassesAll().then(function (response) {
+
+        self.tab = response.data;
+
+        console.log('classes: ' + self.tab);
 
     });
 
@@ -36,7 +43,16 @@ app.service('all', function($http){
             method: 'GET',
             url: url
         });
-    }; 
+    };
+
+    self.GetClassesAll = function () {
+        var url = "http://localhost:8080/rest/classes/all";
+
+        return $http({
+            method: 'GET',
+            url: url
+        });
+    };
 
 });
 
