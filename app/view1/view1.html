@@ -10,9 +10,9 @@
 <body>
     <div class="container" ng-controller="View1Ctrl as View1Ctrl" >
 
-        <div>
-            <p>BONJOUR {{View1Ctrl.info}}</p>
-
+        <div ng-repeat="var in View1Ctrl.tab">
+            <p>BONJOUR {{View1Ctrl.info}} </p>
+            <p>BONSOIR {{var.name}} {{var.parent_id}}</p>
         </div>
 
         <div style="margin-left:35%;">
