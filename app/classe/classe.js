@@ -9,21 +9,24 @@ app.config(['$routeProvider', function($routeProvider) {
   });
 }])
 
-app.controller('classeCtrl', ['all', function (all) {
+
+app.controller('classeCtrl', ['ServiceClasse', function (ServiceClasse) {
 
     var self = this;
+    self.mes = "test";
 
     GetClassesAll().then(function (response) {
 
         self.classes = response.data;
 
-        console.log('classes: ' + self.classes);
+        console.log('eleves: ' + self.classes);
 
     });
 }]);
 
 
-app.service('all', function ($http) {
+
+app.service('ServiceClasse', function ($http) {
 
     self.GetClassesAll = function () {
         var url = "http://localhost:8080/rest/classes/all";
